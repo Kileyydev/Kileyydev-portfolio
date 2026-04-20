@@ -10,11 +10,11 @@ import Footer from '../homepage/components/Footer';
 import TopNavBar from '../homepage/components/TopNavBar';
 
 const colors = {
-  sage: '#2A6B5A',
-  teal: '#14B8A6',
-  lightBg: '#F8F6F2',
-  text: '#1C2B27',
-  muted: '#5A6E68',
+  primary: '#6B4E3D',      // Deep warm brown
+  accent: '#D4A88A',       // Soft gold / highlight
+  lightBg: '#F8F4ED',      // Warm cream
+  text: '#2C211B',         // Rich dark brown
+  muted: '#8C745E',        // Soft brown
 };
 
 export default function ContactPage() {
@@ -33,7 +33,6 @@ export default function ContactPage() {
     { label: 'GitHub: Kileyydev', href: me.github },
   ];
 
-  // Proper TypeScript handler
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
@@ -50,13 +49,13 @@ export default function ContactPage() {
             <Box sx={{
               px: { xs: 3, md: 6 },
               py: { xs: 7, md: 9 },
-              borderRight: { md: '1px solid #E5E9E6' },
+              borderRight: { md: '1px solid #EDE4D8' },
               bgcolor: '#fff'
             }}>
               <Typography
                 variant="overline"
                 sx={{
-                  color: colors.sage,
+                  color: colors.accent,
                   display: 'block',
                   mb: 2.5,
                   fontFamily: 'monospace',
@@ -76,7 +75,7 @@ export default function ContactPage() {
                   fontWeight: 300
                 }}
                 dangerouslySetInnerHTML={{
-                  __html: "Let's build<br/><span style='color:#14B8A6; font-style:italic'>resilient</span><br/>things<br/>together."
+                  __html: "Let's build<br/><span style='color:#D4A88A; font-style:italic'>resilient</span><br/>things<br/>together."
                 }}
               />
 
@@ -101,36 +100,36 @@ export default function ContactPage() {
                       gap: 1.5,
                       px: 2.5,
                       py: 1.8,
-                      border: '1px solid #E5E9E6',
+                      border: '1px solid #EDE4D8',
                       borderRadius: 2,
                       bgcolor: '#fff',
                       textDecoration: 'none',
                       fontFamily: '"JetBrains Mono", monospace',
                       fontSize: '0.75rem',
-                      color: colors.sage,
+                      color: colors.primary,
                       transition: 'all .2s',
                       '&:hover': {
-                        bgcolor: '#EAF5F1',
-                        borderColor: colors.teal
+                        bgcolor: '#F5EDE4',
+                        borderColor: colors.accent
                       }
                     }}
                   >
-                    <span style={{ color: colors.teal }}>→</span> {l.label}
+                    <span style={{ color: colors.accent }}>→</span> {l.label}
                   </Box>
                 ))}
               </Box>
 
-              {/* Terminal */}
+              {/* Terminal - Warm Theme */}
               <Terminal
                 title="ivy@contact ~ status"
                 lines={[
                   { prompt: 'ivy@contact', cmd: '~ $ cat available.json' },
-                  { out: '{', outColor: '#8A9BA8' },
-                  { out: '  "open_to_work": true,', outColor: '#8A9BA8' },
-                  { out: '  "relocate": true,', outColor: '#8A9BA8' },
-                  { out: '  "focus": "GRC · Risk · Cloud Security",', outColor: '#B87ACA' },
-                  { out: '  "response_time": "fast"', outColor: '#B87ACA' },
-                  { out: '}', outColor: '#8A9BA8' },
+                  { out: '{', outColor: '#A38B6B' },
+                  { out: '  "open_to_work": true,', outColor: '#A38B6B' },
+                  { out: '  "relocate": true,', outColor: '#A38B6B' },
+                  { out: '  "focus": "GRC · Risk · Cloud Security",', outColor: '#D4A88A' },
+                  { out: '  "response_time": "fast"', outColor: '#D4A88A' },
+                  { out: '}', outColor: '#A38B6B' },
                 ]}
                 cursor={false}
               />
@@ -144,7 +143,7 @@ export default function ContactPage() {
               <Typography
                 variant="overline"
                 sx={{
-                  color: colors.sage,
+                  color: colors.accent,
                   display: 'block',
                   mb: 2.5,
                   fontFamily: 'monospace',
@@ -169,12 +168,12 @@ export default function ContactPage() {
               {submitted ? (
                 <Box sx={{
                   p: 5,
-                  bgcolor: '#EAF5F1',
-                  border: '1px solid #C2E2D8',
+                  bgcolor: '#F5EDE4',
+                  border: '1px solid #E8D9C4',
                   borderRadius: 2,
                   textAlign: 'center'
                 }}>
-                  <Typography variant="h4" sx={{ color: colors.teal, mb: 1.5 }}>
+                  <Typography variant="h4" sx={{ color: colors.accent, mb: 1.5 }}>
                     Message sent successfully!
                   </Typography>
                   <Typography sx={{ color: colors.muted }}>
@@ -206,13 +205,13 @@ export default function ContactPage() {
                           width: '100%',
                           px: 2.5,
                           py: 1.6,
-                          border: '1px solid #E5E9E6',
+                          border: '1px solid #EDE4D8',
                           borderRadius: 1.5,
                           fontSize: '0.95rem',
                           bgcolor: '#fff',
                           color: colors.text,
                           outline: 'none',
-                          '&:focus': { borderColor: colors.teal }
+                          '&:focus': { borderColor: colors.accent }
                         }}
                       />
                     </Box>
@@ -235,7 +234,7 @@ export default function ContactPage() {
                         width: '100%',
                         px: 2.5,
                         py: 1.8,
-                        border: '1px solid #E5E9E6',
+                        border: '1px solid #EDE4D8',
                         borderRadius: 1.5,
                         fontSize: '0.95rem',
                         bgcolor: '#fff',
@@ -243,7 +242,7 @@ export default function ContactPage() {
                         outline: 'none',
                         resize: 'vertical',
                         minHeight: 140,
-                        '&:focus': { borderColor: colors.teal }
+                        '&:focus': { borderColor: colors.accent }
                       }}
                     />
                   </Box>
@@ -254,12 +253,12 @@ export default function ContactPage() {
                     sx={{
                       py: 1.8,
                       mt: 2,
-                      bgcolor: colors.teal,
+                      bgcolor: colors.primary,
                       color: 'white',
                       fontFamily: '"JetBrains Mono", monospace',
                       fontSize: '0.8rem',
                       letterSpacing: '0.8px',
-                      '&:hover': { bgcolor: colors.sage }
+                      '&:hover': { bgcolor: '#8C5F45' }
                     }}
                     onClick={() => setSubmitted(true)}
                   >

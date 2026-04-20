@@ -1,8 +1,5 @@
 'use client';
 
-// ============================================================
-// src/app/about/page.tsx
-// ============================================================
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -13,22 +10,23 @@ import { SectionLabel, Tag } from '@/components';
 import { experience, skills, certifications } from '@/data/portfolio';
 import TopNavBar from '../homepage/components/TopNavBar';
 import Footer from '../homepage/components/Footer';
+
 const colors = {
-  sage: '#2A6B5A',
-  teal: '#14B8A6',
-  lightBg: '#F8F6F2',
-  text: '#1C2B27',
-  muted: '#5A6E68',
+  primary: '#6B4E3D',      // Deep warm brown
+  accent: '#D4A88A',       // Soft gold / warm highlight
+  lightBg: '#F8F4ED',      // Warm cream background
+  text: '#2C211B',         // Dark rich brown
+  muted: '#8C745E',        // Soft brown
 };
 
 const AboutTerminal = styled(Paper)({
-  backgroundColor: '#0A0F0C',
-  color: '#98C379',
+  backgroundColor: '#1C1612',        // Warm dark
+  color: '#EDE4D8',                  // Warm light text
   fontFamily: '"Ubuntu Mono", monospace',
   padding: '32px',
   borderRadius: '12px',
-  border: '1px solid #1F2A24',
-  boxShadow: '0 20px 50px rgba(20, 184, 166, 0.18)',
+  border: '1px solid #3C2F2F',
+  boxShadow: '0 20px 50px rgba(107, 78, 61, 0.25)',
   width: '100%',
   minHeight: '360px',
 });
@@ -41,13 +39,13 @@ export default function AboutPage() {
         <Box sx={{ backgroundColor: colors.lightBg }}>
 
         {/* SPLIT HEADER */}
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, borderBottom: '1px solid', borderColor: '#E5E9E6' }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, borderBottom: '1px solid', borderColor: '#EDE4D8' }}>
           
           {/* LEFT: About Me */}
-          <Box sx={{ px: { xs: 3, md: 6 }, py: { xs: 7, md: 9 }, borderRight: { md: '1px solid' }, borderColor: '#E5E9E6' }}>
+          <Box sx={{ px: { xs: 3, md: 6 }, py: { xs: 7, md: 9 }, borderRight: { md: '1px solid' }, borderColor: '#EDE4D8' }}>
             <Typography 
               variant="overline" 
-              sx={{ color: colors.sage, display: 'block', mb: 2.5, fontFamily: 'monospace', letterSpacing: '2px' }}
+              sx={{ color: colors.accent, display: 'block', mb: 2.5, fontFamily: 'monospace', letterSpacing: '2px' }}
             >
               // about me
             </Typography>
@@ -62,7 +60,7 @@ export default function AboutPage() {
                 fontWeight: 300 
               }}
             >
-              Calm under <span style={{ color: colors.teal, fontStyle: 'italic' }}>pressure.</span><br />
+              Calm under <span style={{ color: colors.accent, fontStyle: 'italic' }}>pressure.</span><br />
               Clear in complexity.
             </Typography>
 
@@ -82,7 +80,7 @@ export default function AboutPage() {
           <Box sx={{ px: { xs: 3, md: 6 }, py: { xs: 7, md: 9 }, bgcolor: '#fff' }}>
             <Typography 
               variant="overline" 
-              sx={{ color: colors.sage, display: 'block', mb: 3, fontFamily: 'monospace', letterSpacing: '2px' }}
+              sx={{ color: colors.accent, display: 'block', mb: 3, fontFamily: 'monospace', letterSpacing: '2px' }}
             >
               // education & certifications
             </Typography>
@@ -91,7 +89,7 @@ export default function AboutPage() {
               <Typography variant="h4" sx={{ mb: 0.5, color: colors.text }}>
                 BSc Computer Networks & Cybersecurity
               </Typography>
-              <Typography sx={{ color: colors.teal, mb: 2 }}>
+              <Typography sx={{ color: colors.accent, mb: 2 }}>
                 Strathmore University · 2022 – 2026
               </Typography>
               <Typography variant="body2" sx={{ color: colors.muted }}>
@@ -113,14 +111,14 @@ export default function AboutPage() {
                     alignItems: 'center', 
                     gap: 1.5, 
                     p: 1.75, 
-                    border: '1px solid #E5E9E6', 
+                    border: '1px solid #EDE4D8', 
                     borderRadius: 2, 
                     textDecoration: 'none',
-                    '&:hover': { borderColor: colors.teal }
+                    '&:hover': { borderColor: colors.accent }
                   }}
                 >
-                  <Box sx={{ width: 32, height: 32, bgcolor: '#EAF5F1', borderRadius: 1.5, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={colors.sage} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <Box sx={{ width: 32, height: 32, bgcolor: '#F5EDE4', borderRadius: 1.5, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={colors.primary} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
                     </svg>
                   </Box>
@@ -134,13 +132,13 @@ export default function AboutPage() {
           </Box>
         </Box>
 
-        {/* TERMINAL SECTION */}
+        {/* TERMINAL SECTION - Warm Brown Theme */}
         <Box sx={{ px: { xs: 3, md: 6 }, py: { xs: 8, md: 10 } }}>
           <AboutTerminal>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 3, pb: 2, borderBottom: '1px solid #1F2A24' }}>
-              <TerminalIcon sx={{ color: '#E06C75' }} />
-              <Typography sx={{ color: '#E5C07B', fontSize: '14.5px' }}>
-                ivy@cyblack:~#
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 3, pb: 2, borderBottom: '1px solid #3C2F2F' }}>
+              <TerminalIcon sx={{ color: '#D4A88A' }} />
+              <Typography sx={{ color: '#E8D9C4', fontSize: '14.5px' }}>
+                ivy@portfolio:~#
               </Typography>
             </Box>
 
@@ -150,32 +148,31 @@ export default function AboutPage() {
                 fontFamily: '"Ubuntu Mono", monospace',
                 fontSize: '15.2px',
                 lineHeight: 1.8,
-                color: '#98C379',
+                color: '#EDE4D8',
                 whiteSpace: 'pre-wrap',
               }}
             >
-{`ivy@cyblack:~# whoami
+{`ivy@portfolio:~# whoami
 Cybersecurity builder & student @ Strathmore University
 
-ivy@cyblack:~# configure --mode resilience
+ivy@portfolio:~# configure --mode resilience
 → Building human-centered security awareness platforms
 → Implementing GRC & cloud security controls
 → Designing behavioral risk & insider threat solutions
 
 Configuration successful.
 
-ivy@cyblack:~# echo "Security Philosophy"
+ivy@portfolio:~# echo "Security Philosophy"
 Calm analysis. Precise execution. Human-first mindset.
 Security is not just protection — it's enabling trust and clarity.
 
-ivy@cyblack:~# █`}
+ivy@portfolio:~# █`}
             </Typography>
           </AboutTerminal>
         </Box>
 
-        {/* EXPERIENCE & SKILLS sections remain the same as before */}
         {/* EXPERIENCE */}
-        <Box sx={{ px: { xs: 3, md: 6 }, py: { xs: 8, md: 9 }, borderTop: '1px solid #E5E9E6' }}>
+        <Box sx={{ px: { xs: 3, md: 6 }, py: { xs: 8, md: 9 }, borderTop: '1px solid #EDE4D8' }}>
           <SectionLabel>work experience</SectionLabel>
           {experience.map((e, idx) => (
             <Box key={idx} sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '120px 20px 1fr' }, gap: { xs: 1, sm: '0 20px' }, pb: 5 }}>
@@ -183,11 +180,11 @@ ivy@cyblack:~# █`}
                 {e.period}{e.location && <><br />{e.location}</>}
               </Typography>
               <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexDirection: 'column', alignItems: 'center' }}>
-                <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: colors.teal, mt: '4px' }} />
-                {idx < experience.length - 1 && <Box sx={{ flex: 1, width: '1px', bgcolor: '#E5E9E6', mt: 0.5 }} />}
+                <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: colors.accent, mt: '4px' }} />
+                {idx < experience.length - 1 && <Box sx={{ flex: 1, width: '1px', bgcolor: '#EDE4D8', mt: 0.5 }} />}
               </Box>
               <Box>
-                <Typography sx={{ color: colors.sage, letterSpacing: '.06em', mb: 0.5 }}>{e.company}</Typography>
+                <Typography sx={{ color: colors.primary, letterSpacing: '.06em', mb: 0.5 }}>{e.company}</Typography>
                 <Typography variant="h4" sx={{ mb: 1, color: colors.text }}>{e.title}</Typography>
                 <Typography variant="body2" sx={{ color: colors.muted, mb: 2 }}>{e.description}</Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
@@ -218,11 +215,11 @@ ivy@cyblack:~# █`}
                         px: 3, 
                         py: 1.2, 
                         bgcolor: '#fff', 
-                        border: '1px solid #E5E9E6', 
+                        border: '1px solid #EDE4D8', 
                         borderRadius: '40px' 
                       }}
                     >
-                      <Box sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: colors.teal }} />
+                      <Box sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: colors.accent }} />
                       <Typography sx={{ fontSize: '0.8rem', color: colors.text }}>{item}</Typography>
                     </Box>
                   ))}

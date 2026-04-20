@@ -10,194 +10,225 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import TerminalIcon from '@mui/icons-material/Terminal';
+import TopNavBar from './homepage/components/TopNavBar';
+import Footer from './homepage/components/Footer';
 import { useRouter } from 'next/navigation';
 
 const colors = {
-  sage: '#2A6B5A',
-  teal: '#14B8A6',
-  lightBg: '#F8F6F2',
-  text: '#1C2B27',
-  muted: '#5A6E68',
-  glass: 'rgba(248, 246, 242, 0.92)',
+  text: '#F5F0E9',
+  accent: '#D4B89E',
+  muted: '#B8A78F',
+  glass: 'rgba(15, 12, 10, 0)',
 };
 
-const GlossyCard = styled(Paper)({
+const ContainerCard = styled(Paper)({
   background: colors.glass,
   backdropFilter: 'blur(32px)',
-  WebkitBackdropFilter: 'blur(32px)',
-  border: '1px solid rgba(42, 107, 90, 0.18)',
-  boxShadow: '0 25px 80px rgba(20, 184, 166, 0.12)',
+  border: '1px solid rgba(212, 184, 158, 0.2)',
   borderRadius: '20px',
   overflow: 'hidden',
+  boxShadow: '0 40px 100px rgba(0, 0, 0, 0.4)',
 });
 
-const TerminalBox = styled(Box)({
-  backgroundColor: '#0A0F0C',
-  color: '#98C379',
-  fontFamily: '"Ubuntu Mono", monospace',
-  padding: '26px',
-  borderRadius: '10px',
-  border: '1px solid #1F2A24',
-  minHeight: '340px',
+const TerminalWrapper = styled(Box)({
+  background: 'linear-gradient(145deg, #1C1612, #241C17)',
+  borderRadius: '16px',
+  padding: '32px',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
 });
 
 export default function Home() {
   const router = useRouter();
 
-  const navItems = [
-    { label: 'About', route: '#about' },
-    { label: 'Experience', route: '#experience' },
-    { label: 'Projects', route: '#projects' },
-  ];
-
   return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        background: colors.lightBg,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        p: { xs: 3, md: 6 },
-      }}
-    >
-      <GlossyCard
+    <>
+      <TopNavBar />
+
+      <Box
         sx={{
-          width: '100%',
-          maxWidth: 1280,
-          height: { xs: 'auto', md: 720 },
+          minHeight: '100vh',
+          position: 'relative',
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundImage: "url('/images/hero1.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
         }}
       >
-        {/* LEFT - Content */}
+        {/* Dark Elegant Overlay */}
         <Box
           sx={{
-            flex: 1,
-            p: { xs: 6, md: 10 },
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(rgba(10, 8, 6, 0.75), rgba(10, 8, 6, 0.85))',
+            zIndex: 1,
+          }}
+        />
+
+        <ContainerCard
+          sx={{
+            width: '100%',
+            maxWidth: 1280,
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
+            flexDirection: { xs: 'column', md: 'row' },
+            zIndex: 2,
+            position: 'relative',
+            overflow: 'visible',
           }}
         >
-          <Typography
+          {/* LEFT - Big Elegant Text */}
+          <Box
             sx={{
-              fontFamily: 'monospace',
-              fontSize: '13px',
-              letterSpacing: '3px',
-              color: colors.sage,
-              mb: 3,
+              width: { xs: '100%', md: '55%' },
+              p: { xs: 6, md: 10 },
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
             }}
           >
-            // IVY MUTANU KILEY
-          </Typography>
+            <Typography
+              sx={{
+                fontFamily: 'monospace',
+                fontSize: '13px',
+                letterSpacing: '4px',
+                color: colors.accent,
+                mb: 3,
+              }}
+            >
+              CYBERSECURITY PROFESSIONAL
+            </Typography>
 
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: { xs: '42px', md: '58px' },
-              fontWeight: 300,
-              lineHeight: 1.08,
-              color: colors.text,
-              mb: 4,
-            }}
-          >
-            Calm under pressure.<br />
-            Clear in complexity.
-          </Typography>
+            <Typography
+              variant="h1"
+              sx={{
+                fontFamily: '"Playfair Display", serif',
+                fontSize: { xs: '52px', md: '68px' },
+                lineHeight: 1.05,
+                fontWeight: 400,
+                color: colors.text,
+                mb: 4,
+              }}
+            >
+              Calm under<br />
+              pressure.<br />
+              Clear in<br />
+              complexity.
+            </Typography>
 
-          <Typography
-            sx={{
-              fontSize: '17.5px',
-              lineHeight: 1.85,
-              color: colors.muted,
-              maxWidth: 480,
-              mb: 8,
-            }}
-          >
-            Cybersecurity Graduate &amp; Aspiring Risk Consultant from Nairobi.<br />
-            I translate technical risks into clear business resilience while keeping people at the center.
-          </Typography>
+            <Typography
+              sx={{
+                fontSize: '17.5px',
+                lineHeight: 1.8,
+                color: colors.muted,
+                maxWidth: '460px',
+                mb: 6,
+              }}
+            >
+              I turn complex security risks into clear, human-centered solutions.
+            </Typography>
 
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-            {navItems.map((item) => (
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
               <Button
-                key={item.label}
                 variant="outlined"
-                onClick={() => {
-                  const el = document.querySelector(item.route);
-                  el?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => router.push('/about')}
                 sx={{
-                  borderColor: colors.sage,
-                  color: colors.sage,
-                  px: 5,
-                  py: 1.6,
+                  borderColor: colors.accent,
+                  color: colors.accent,
+                  px: 6,
+                  py: 1.8,
+                  borderRadius: '50px',
                   fontSize: '15px',
-                  textTransform: 'none',
-                  borderRadius: '6px',
                   '&:hover': {
-                    borderColor: colors.teal,
-                    color: colors.teal,
-                    backgroundColor: 'rgba(20,184,166,0.05)',
+                    backgroundColor: colors.accent,
+                    color: '#111',
                   },
                 }}
               >
-                {item.label}
+                Learn more about Ivy
               </Button>
-            ))}
-          </Stack>
-        </Box>
 
-        {/* RIGHT - Interesting Terminal */}
-        <Box
-          sx={{
-            width: { xs: '100%', md: 520 },
-            background: '#0F1C18',
-            p: 6,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <TerminalBox>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 4, pb: 2, borderBottom: '1px solid #1F2A24' }}>
-              <TerminalIcon sx={{ color: '#E06C75' }} />
-              <Typography sx={{ color: '#E5C07B', fontSize: '14px' }}>
-                ivy@portfolio:~#
-              </Typography>
-            </Box>
+              <Button
+                variant="contained"
+                onClick={() => router.push('/contact')}
+                sx={{
+                  bgcolor: colors.accent,
+                  color: '#111',
+                  px: 6,
+                  py: 1.8,
+                  borderRadius: '50px',
+                  fontSize: '15px',
+                  '&:hover': {
+                    bgcolor: '#E8D9C4',
+                  },
+                }}
+              >
+                Get in Touch
+              </Button>
+            </Stack>
+          </Box>
 
-            <Typography 
-              component="pre" 
-              sx={{ 
-                fontSize: '14.8px', 
-                lineHeight: 1.78,
-                color: '#98C379',
-                whiteSpace: 'pre-wrap',
-              }}
-            >
-{`ivy@portfolio:~# load mindset.conf
-Loading calm precision...
-Enabling human-centered awareness...
-Activating resilience protocols...
+          {/* RIGHT - TERMINAL (Kept as requested) */}
+          <Box
+            sx={{
+              width: { xs: '100%', md: '45%' },
+              p: { xs: 4, md: 8 },
+              display: 'flex',
+              alignItems: 'center',
+              bgcolor: 'rgba(0,0,0,0.3)',
+            }}
+          >
+            <TerminalWrapper>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  mb: 4,
+                  pb: 2,
+                  borderBottom: '1px solid rgba(255,255,255,0.1)',
+                }}
+              >
+                <TerminalIcon sx={{ color: '#D4B89E' }} />
+                <Typography sx={{ color: '#D4B89E', fontSize: '14.5px' }}>
+                  ivy@portfolio:~#
+                </Typography>
+              </Box>
 
-Mindset loaded successfully.
+              <Typography
+                component="pre"
+                sx={{
+                  fontFamily: '"Ubuntu Mono", monospace',
+                  fontSize: '14.8px',
+                  lineHeight: 1.75,
+                  color: '#EDE4D8',
+                  whiteSpace: 'pre-wrap',
+                }}
+              >
+{`ivy@portfolio:~# whoami
+Cybersecurity builder & strategist
 
-ivy@portfolio:~# audit security_culture
-→ Phishing resistance: strengthened
-→ Password hygiene: improved
-→ User decision-making: empowered
+ivy@portfolio:~# status
+→ Open to GRC, Risk Consulting & Cloud Security roles
+→ Based in Nairobi • Willing to relocate
 
-ivy@portfolio:~# echo "What security means to me"
-Security is not about fear.
-It's about clarity, trust, and building systems that protect people while letting them thrive.
+ivy@portfolio:~# philosophy
+Calm analysis. Precise execution. Human-first security.
 
 ivy@portfolio:~# █`}
-            </Typography>
-          </TerminalBox>
-        </Box>
-      </GlossyCard>
-    </Box>
+              </Typography>
+            </TerminalWrapper>
+          </Box>
+        </ContainerCard>
+      </Box>
+
+      <Footer />
+    </>
   );
 }
