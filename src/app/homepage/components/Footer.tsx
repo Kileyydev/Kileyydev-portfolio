@@ -2,61 +2,79 @@ import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 
 const colors = {
-  primary: '#6B4E3D',
-  accent: '#D4A88A',
-  muted: '#8C745E',
-  bg: '#F8F4ED',
-  border: '#EDE4D8',
+  bg: '#070604',
+  text: '#F5F0E9',
+  accent: '#D4B89E',
+  muted: '#B8A78F',
+  border: 'rgba(212, 184, 158, 0.15)',
 };
 
 const Footer = () => {
   return (
-    <Box 
-      sx={{ 
-        backgroundColor: colors.bg, 
-        py: 5, 
+    <Box
+      sx={{
+        background: colors.bg,
+        py: 6,
         borderTop: `1px solid ${colors.border}`,
-        mt: 'auto'
+        mt: 'auto',
+        position: 'relative',
       }}
     >
       <Container maxWidth="lg">
-        <Box 
-          sx={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'center', 
-            flexWrap: 'wrap', 
-            gap: 3 
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: 3,
           }}
         >
-          <Typography 
-            sx={{ 
-              fontFamily: 'monospace', 
-              fontSize: '13.5px', 
+          {/* LEFT */}
+          <Typography
+            sx={{
+              fontFamily: 'monospace',
+              fontSize: '13px',
               color: colors.muted,
-              letterSpacing: '0.5px'
+              letterSpacing: '0.5px',
+              opacity: 0.9,
+              transition: '0.2s',
+              '&:hover': {
+                color: colors.accent,
+                opacity: 1,
+              },
             }}
           >
             © 2026 Ivy Mutanu Kiley
           </Typography>
 
-          <Typography 
-            sx={{ 
-              fontFamily: 'monospace', 
-              fontSize: '13.5px', 
+          {/* CENTER */}
+          <Typography
+            sx={{
+              fontFamily: 'monospace',
+              fontSize: '13px',
               color: colors.muted,
-              letterSpacing: '0.5px'
+              letterSpacing: '0.5px',
+              opacity: 0.9,
+              '&:hover': {
+                color: colors.accent,
+              },
             }}
           >
             Nairobi, Kenya
           </Typography>
 
-          <Typography 
-            sx={{ 
-              fontFamily: 'monospace', 
-              fontSize: '13px', 
+          {/* RIGHT */}
+          <Typography
+            sx={{
+              fontFamily: 'monospace',
+              fontSize: '13px',
               color: colors.muted,
-              letterSpacing: '0.5px'
+              letterSpacing: '0.5px',
+              opacity: 0.9,
+              '&:hover': {
+                color: colors.accent,
+              },
             }}
           >
             Built with calm precision ✨

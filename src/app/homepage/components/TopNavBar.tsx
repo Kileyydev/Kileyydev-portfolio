@@ -82,33 +82,11 @@ export default function TopNavBar() {
             <NavLink>Experience</NavLink>
           </Link>
 
-          {/* Projects Dropdown */}
-          <Box onMouseEnter={handleOpenProjects} onMouseLeave={handleCloseProjects}>
-            <NavLink sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-              Projects
-              <KeyboardArrowDownIcon sx={{ fontSize: 18 }} />
-            </NavLink>
+          <Link href="/projects" style={{ textDecoration: 'none' }}>
+            <NavLink>Projects</NavLink>
+          </Link>
 
-            <Menu
-              anchorEl={projectsAnchor}
-              open={openProjects}
-              onClose={handleCloseProjects}
-              sx={{
-                '& .MuiPaper-root': {
-                  backgroundColor: 'rgba(15,12,10,0.95)',
-                  backdropFilter: 'blur(20px)',
-                  color: '#F5F0E9',
-                  border: '1px solid rgba(212, 184, 158, 0.2)',
-                  borderRadius: '8px',
-                },
-              }}
-            >
-              <MenuItem onClick={handleCloseProjects}>All Projects</MenuItem>
-              <MenuItem onClick={handleCloseProjects}>Cybersecurity Awareness</MenuItem>
-              <MenuItem onClick={handleCloseProjects}>FairTrace Blockchain</MenuItem>
-              <MenuItem onClick={handleCloseProjects}>Insider Threat Dashboard</MenuItem>
-            </Menu>
-          </Box>
+          
 
           <Link href="/contact" style={{ textDecoration: 'none' }}>
             <NavLink>Contact</NavLink>

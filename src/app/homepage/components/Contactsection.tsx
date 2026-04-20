@@ -13,39 +13,57 @@ import { styled } from '@mui/material/styles';
 import TerminalIcon from '@mui/icons-material/Terminal';
 
 const colors = {
-  sage: '#2A6B5A',
-  teal: '#14B8A6',
-  lightBg: '#F8F6F2',
-  text: '#1C2B27',
-  muted: '#5A6E68',
+  bg: '#070604',
+  card: '#0E1512',
+  text: '#F5F0E9',
+  accent: '#D4B89E',
+  muted: '#B8A78F',
+  border: 'rgba(212, 184, 158, 0.15)',
 };
 
+/* ───────── TERMINAL ───────── */
+
 const ContactTerminal = styled(Paper)({
-  backgroundColor: '#0A0F0C',
-  color: '#98C379',
+  background: 'linear-gradient(145deg, #0E1512, #0B110E)',
+  color: colors.accent,
   fontFamily: '"Ubuntu Mono", monospace',
   padding: '24px',
-  borderRadius: '8px',
-  border: '1px solid #1F2A24',
-  boxShadow: '0 12px 35px rgba(20, 184, 166, 0.15)',
+  borderRadius: '14px',
+  border: `1px solid ${colors.border}`,
+  boxShadow: '0 25px 60px rgba(0,0,0,0.4)',
   minHeight: '260px',
   width: '100%',
 });
 
+/* ───────── SECTION ───────── */
+
 const ContactSection = () => {
   return (
-    <Box sx={{ backgroundColor: colors.lightBg, py: 14, borderTop: '1px solid #E8F4F0' }}>
+    <Box
+      sx={{
+        background: colors.bg,
+        py: { xs: 10, md: 14 },
+        position: 'relative',
+      }}
+    >
       <Container maxWidth="lg">
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 10, alignItems: 'flex-start' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: 10,
+            alignItems: 'flex-start',
+          }}
+        >
 
-          {/* Left Side - Text */}
-          <Box sx={{ flex: 1, maxWidth: '520px' }}>
+          {/* ───────── LEFT ───────── */}
+          <Box sx={{ flex: 1, maxWidth: 520 }}>
             <Typography
               variant="overline"
               sx={{
-                color: colors.sage,
+                color: colors.accent,
                 fontFamily: 'monospace',
-                letterSpacing: '2px',
+                letterSpacing: '3px',
                 fontSize: '13px',
                 mb: 4,
                 display: 'block',
@@ -57,15 +75,17 @@ const ContactSection = () => {
             <Typography
               variant="h2"
               sx={{
-                fontSize: { xs: '42px', md: '52px' },
+                fontSize: { xs: '40px', md: '52px' },
                 fontWeight: 300,
                 lineHeight: 1.15,
                 color: colors.text,
                 mb: 4,
               }}
             >
-              Let&apos;s build<br />
-              <span style={{ color: colors.teal }}>resilient things.</span>
+              Let’s build<br />
+              <span style={{ color: colors.accent }}>
+                resilient things.
+              </span>
             </Typography>
 
             <Typography
@@ -74,60 +94,94 @@ const ContactSection = () => {
                 lineHeight: 1.85,
                 color: colors.muted,
                 mb: 6,
-                maxWidth: '460px',
+                maxWidth: 460,
               }}
             >
-              Open to Risk Consulting, GRC, and Cybersecurity roles globally. 
-              I bring calm precision to complex problems — and I&apos;m always glad to connect.
+              Open to Risk Consulting, GRC, and Cybersecurity roles globally.
+              I focus on clarity, resilience, and human-centered security systems.
             </Typography>
 
             <Stack spacing={2}>
-              <Link href="mailto:imkiley2003@gmail.com" sx={{ color: colors.sage, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 1, '&:hover': { color: colors.teal } }}>
-                → imkiley2003@gmail.com
-              </Link>
-              <Link href="#" sx={{ color: colors.sage, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 1, '&:hover': { color: colors.teal } }}>
-                → LinkedIn: Ivy Kiley
-              </Link>
-              <Link href="https://github.com/Kileyydev" target="_blank" sx={{ color: colors.sage, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 1, '&:hover': { color: colors.teal } }}>
-                → GitHub: Kileyydev
-              </Link>
-              <Link href="tel:+254708835355" sx={{ color: colors.sage, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 1, '&:hover': { color: colors.teal } }}>
-                → +254 708 835 355
-              </Link>
+              {[
+                'mailto:imkiley2003@gmail.com',
+                '#',
+                'https://github.com/Kileyydev',
+                'tel:+254708835355',
+              ].map((href, i) => (
+                <Link
+                  key={i}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  sx={{
+                    color: colors.accent,
+                    textDecoration: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 1,
+                    fontFamily: 'monospace',
+                    fontSize: '14px',
+                    opacity: 0.85,
+                    transition: '0.2s',
+                    '&:hover': {
+                      opacity: 1,
+                      transform: 'translateX(4px)',
+                    },
+                  }}
+                >
+                  → {href}
+                </Link>
+              ))}
             </Stack>
           </Box>
 
-          {/* Right Side - Terminal */}
-          <Box sx={{ flex: 1, maxWidth: { md: '460px' } }}>
+          {/* ───────── RIGHT TERMINAL ───────── */}
+          <Box sx={{ flex: 1, maxWidth: 460 }}>
             <ContactTerminal>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 3, pb: 2, borderBottom: '1px solid #1F2A24' }}>
-                <TerminalIcon sx={{ color: '#E06C75' }} />
-                <Typography sx={{ color: '#E5C07B', fontSize: '14px' }}>
+
+              {/* Header */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  mb: 3,
+                  pb: 2,
+                  borderBottom: `1px solid ${colors.border}`,
+                }}
+              >
+                <TerminalIcon sx={{ color: colors.accent }} />
+                <Typography sx={{ color: colors.accent, fontSize: '14px' }}>
                   ivy@contact:~#
                 </Typography>
               </Box>
 
-              <Typography 
-                component="pre" 
-                sx={{ 
-                  fontFamily: '"Ubuntu Mono", monospace', 
-                  fontSize: '14.8px', 
+              {/* Terminal Content */}
+              <Typography
+                component="pre"
+                sx={{
+                  fontFamily: '"Ubuntu Mono", monospace',
+                  fontSize: '14.5px',
                   lineHeight: 1.75,
-                  color: '#98C379',
+                  color: colors.accent,
                   whiteSpace: 'pre-wrap',
                 }}
               >
 {`ivy@contact:~# ping ivy
-PING ivy.kiley — available globally
-64 bytes from ivy: icmp_seq=1 ttl=64
+connection: stable
+availability: global
+response: instant
 
-ivy@contact:~# nslookup status
-→ open_to_work: true
-→ relocate: yes
-→ response_time: fast
+ivy@contact:~# status --user
+open_to_work = true
+relocation = enabled
+communication = clear
+
+ivy@contact:~# echo "message"
+Let’s build secure, human-centered systems that actually work.
 
 ivy@contact:~# █`}
               </Typography>
+
             </ContactTerminal>
           </Box>
 

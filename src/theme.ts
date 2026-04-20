@@ -11,23 +11,23 @@ const josefin = Josefin_Sans({
 
 const theme = createTheme({
   palette: {
-    primary: { 
-      main: '#6B4E3D',        // Deep warm brown
+    primary: {
+      main: '#6B4E3D',
       light: '#8C5F45',
       dark: '#4A3629',
     },
-    secondary: { 
-      main: '#D4A88A',        // Soft gold accent
+    secondary: {
+      main: '#D4A88A',
     },
     background: {
-      default: '#F8F4ED',     // Warm cream background
-      paper: '#FFFFFF',       // Clean white for cards/glass
+      default: '#F8F4ED',
+      paper: '#FFFFFF',
     },
     text: {
-      primary: '#2C211B',     // Rich dark brown text
-      secondary: '#8C745E',   // Muted brown
+      primary: '#2C211B',
+      secondary: '#8C745E',
     },
-    mode: 'light',            // Changed to light for warm feel
+    mode: 'light',
   },
 
   typography: {
@@ -46,27 +46,46 @@ const theme = createTheme({
       styleOverrides: {
         html: {
           height: '100%',
-          backgroundColor: '#F8F4ED',
         },
+
         body: {
           height: '100%',
           margin: 0,
           padding: 0,
-          backgroundColor: '#F8F4ED',
           color: '#2C211B',
+
+          /* 🌟 CINEMATIC BACKGROUND IMAGE */
+          backgroundImage: "url('/images/hero1.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          position: 'relative',
+
+          /* 🌫️ GLOBAL OVERLAY (VERY IMPORTANT FOR READABILITY) */
+          '&::before': {
+            content: '""',
+            position: 'fixed',
+            inset: 0,
+            background:
+              'radial-gradient(circle at center, rgba(248,244,237,0.25), rgba(44,33,27,0.75))',
+            zIndex: -1,
+            pointerEvents: 'none',
+          },
         },
+
         '#__next': {
           height: '100%',
-          backgroundColor: '#F8F4ED',
         },
+
       },
     },
 
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: 'rgba(255, 255, 255, 0.85)',
-          backdropFilter: 'blur(28px)',
+          backgroundColor: 'rgba(255, 255, 255, 0.82)',
+          backdropFilter: 'blur(24px)',
+          border: '1px solid rgba(107, 78, 61, 0.08)',
         },
       },
     },
